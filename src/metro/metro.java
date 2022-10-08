@@ -10,29 +10,25 @@ import Models.Sommet;
 
 public class metro {
 	public static void main(String[] args) {
-		// ATTENTION CHANGER LA DESTINATION DU FILE
-		File file = new File("C://Users//Cantin//eclipse-workspace//metro//src//ressourceS/metro.txt");
-		
-		if(!file.exists()) {
-			try {
-				file.createNewFile();
-			} catch(IOException e) {
-				e.printStackTrace();
-			}
-		}
-		
-		try(FileInputStream fis = new FileInputStream(file)){
-			Scanner sc = new Scanner(fis);
-			while(sc.hasNextLine()) {
-				String[] ligne = sc.nextLine().split(" ");
-				if(ligne[0].equals("V")) {
-					Sommet sommet = new Sommet(ligne[2],Integer.parseInt(ligne[1]));
-				}
-				
-			}
-		} catch(IOException e) {
-			e.printStackTrace();
-		}
+		 try
+	        {
+			 	// ATTENTION CHANGER LA DESTINATION DU FILE	
+	            File file = new File("C://Users//Cantin//eclipse-workspace//metro//src//ressourceS/metro.txt");
+	            Scanner scanner = new Scanner(file);
+	            while (scanner.hasNextLine()) {
+	            	String ligne = scanner.nextLine();
+	            	String[] ligneInfo = ligne.split(" " );
+					if(ligneInfo[0].equals("V")) {
+						//System.out.println(ligne);
+						Sommet sommet = new Sommet(ligneInfo[2],Integer.parseInt(ligneInfo[1]));
+					}
+	            }
+	                
+	        }
+	        catch(Exception e)
+	        {
+	            e.printStackTrace();
+	        }
 
 		       
     }
