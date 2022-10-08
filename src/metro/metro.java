@@ -19,8 +19,12 @@ public class metro {
 	            	String ligne = scanner.nextLine();
 	            	String[] ligneInfo = ligne.split(" " );
 					if(ligneInfo[0].equals("V")) {
-						//System.out.println(ligne);
-						Sommet sommet = new Sommet(ligneInfo[2],Integer.parseInt(ligneInfo[1]));
+						/*System.out.print(Integer.parseInt(ligneInfo[1]));
+						System.out.print(ligneInfo[2]);
+						System.out.print(ligneInfo[3]);
+						System.out.print(ligneInfo[4]);
+						System.out.println();
+						Sommet sommet = new Sommet(Integer.parseInt(ligneInfo[1]),ligneInfo[2],);*/
 					}
 	            }
 	                
