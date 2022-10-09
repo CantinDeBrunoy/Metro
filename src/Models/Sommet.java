@@ -13,4 +13,12 @@ public class Sommet {
 		this.ligne = ligne;
 		this.estTerminus = estTerminus;
 	}
+	
+	public void printSommet(Sommet sommet) {
+		System.out.print(sommet.id + " ");
+		System.out.print(sommet.nom + " ");
+		System.out.print(sommet.ligne + " ");
+		System.out.print(sommet.estTerminus + " ");
+		System.out.println(sommet.estMarque + " ");
+	}
 }
