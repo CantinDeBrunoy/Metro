@@ -3,12 +3,11 @@ package Models;
 public class Sommet {
 	private int id;
 	private String nom;
-	private int ligne;
-	private int estTerminus;
+	private String ligne;
+	private Boolean estTerminus;
 	private Boolean estMarque = false;	
 	
-	
-	public Sommet (int id,String nom,int ligne,int estTerminus) {
+	public Sommet (int id,String nom,String ligne,boolean estTerminus) {
 		this.nom = nom;
 		this.id = id;
 		this.ligne = ligne;

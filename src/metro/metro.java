@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Scanner;
 
+import Models.Arete;
 import Models.Sommet;
 
 
@@ -19,12 +20,18 @@ public class metro {
 	            	String ligne = scanner.nextLine();
 	            	String[] ligneInfo = ligne.split(" " );
 					if(ligneInfo[0].equals("V")) {
-						/*System.out.print(Integer.parseInt(ligneInfo[1]));
-						System.out.print(ligneInfo[2]);
-						System.out.print(ligneInfo[3]);
-						System.out.print(ligneInfo[4]);
-						System.out.println();
-						Sommet sommet = new Sommet(Integer.parseInt(ligneInfo[1]),ligneInfo[2],);*/
+						Sommet sommet = new Sommet(
+								Integer.parseInt(ligneInfo[1]),
+								ligneInfo[2],ligneInfo[3],
+								Boolean.parseBoolean(ligneInfo[4])
+								);
+					}
+					else if(ligneInfo[0].equals("E")) {
+						Arete arrete = new Arete(
+								Integer.parseInt(ligneInfo[3]),
+								Integer.parseInt(ligneInfo[1]),
+								Integer.parseInt(ligneInfo[2])
+								);
 					}
 	            }
 	                
