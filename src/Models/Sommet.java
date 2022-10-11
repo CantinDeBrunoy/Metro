@@ -31,12 +31,25 @@ public class Sommet {
 			 arete.printArete(arete);
 	}
 	
+	public void setEstMarque(boolean bool)
+	{
+		this.estMarque = bool;
+	}
+	
 	public void setAretes(Arete arete) {
 		this.aretes.add(arete);
+	}
+	
+	public ArrayList<Arete> getArete() {
+		return this.aretes;
 	}
 	
 	public int getId()
 	{
 		return this.id;
+	}
+
+	public boolean getEstMarque() {
+		return this.estMarque;
 	}
 }

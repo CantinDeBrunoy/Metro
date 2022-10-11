@@ -27,5 +27,9 @@ public class Arete {
 	{
 		return this.s2;
 	}
+
+	public int getPoids() {
+		return this.poids;
+	}
 	
 }

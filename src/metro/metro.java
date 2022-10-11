@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import Controllers.AlgoChemins;
 import Models.Arete;
 import Models.Sommet;
 
@@ -31,16 +32,17 @@ public class metro {
 	            e.printStackTrace();
 	        }   
 		 
-		 for (Integer i : listeSommets.keySet()) 
+		 /*for (Integer i : listeSommets.keySet()) 
 		 {
 		     System.out.print("key: " + i + " value: ");
 			 listeSommets.get(i).printSommet();
 			 listeSommets.get(i).printAretes();
 			 System.out.println("");
-		 }
+		 }*/
 		 
-		/* for(Arete arete : listeAretes)
-			 arete.printArete(arete);*/
+		 AlgoChemins algo = new AlgoChemins(listeSommets);
+		 System.out.println(algo.estConnexe());
+		 
     }
 	
 	public static HashMap<Integer, Sommet> ParseStation(Scanner scanner,HashMap<Integer, Sommet> listeSommets){
