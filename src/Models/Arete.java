@@ -18,4 +18,14 @@ public class Arete {
 		
 	}
 	
+	public int getS1()
+	{
+		return this.s1;
+	}
+	
+	public int getS2()
+	{
+		return this.s2;
+	}
+	
 }
