@@ -10,6 +10,10 @@ public class Arete {
 		this.s1 = s1;
 		this.s2 = s2;
 	}
+	
+	public Arete(int poids) {
+		this.poids = poids;
+	}
 
 	public void printArete(Arete arete) {
 		System.out.print(arete.poids + " ");

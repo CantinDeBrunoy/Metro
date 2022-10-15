@@ -32,16 +32,14 @@ public class metro {
 	            e.printStackTrace();
 	        }   
 		 
-		 /*for (Integer i : listeSommets.keySet()) 
-		 {
-		     System.out.print("key: " + i + " value: ");
-			 listeSommets.get(i).printSommet();
-			 listeSommets.get(i).printAretes();
-			 System.out.println("");
-		 }*/
+		 Sommet sommetDepart = listeSommets.get(48);
+		 Sommet sommetArrive = listeSommets.get(365);
+		 var sommettoto = listeSommets.get(12);
+		 
 		 
 		 AlgoChemins algo = new AlgoChemins(listeSommets);
-		 System.out.println(algo.estConnexe());
+		 //System.out.println(algo.estConnexe());
+		 algo.plusCourtChemin(48, 365);
 		 
     }
 	
