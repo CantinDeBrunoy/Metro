@@ -15,7 +15,7 @@ import Models.Sommet;
 public class metro {
 	public static void main(String[] args) {
 		HashMap<Integer, Sommet> listeSommets = new HashMap<Integer, Sommet>();
-		//ArrayList<Sommet> listeSommets = new ArrayList<Sommet>();
+		ArrayList<Arete> listeAretesLesPlusOpti = new ArrayList<Arete>();
 		ArrayList<Arete> listeAretes = new ArrayList<Arete>();
 		 try
 	        {
@@ -31,15 +31,13 @@ public class metro {
 	        {
 	            e.printStackTrace();
 	        }   
-		 
-		 Sommet sommetDepart = listeSommets.get(48);
-		 Sommet sommetArrive = listeSommets.get(365);
-		 var sommettoto = listeSommets.get(12);
-		 
-		 
+		  
 		 AlgoChemins algo = new AlgoChemins(listeSommets);
+		 
 		 //System.out.println(algo.estConnexe());
-		 algo.plusCourtChemin(48, 365);
+		 //algo.plusCourtChemin(274, 182);
+		 
+		 listeAretesLesPlusOpti = algo.apcm(listeAretes);
 		 
     }
 	

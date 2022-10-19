@@ -11,6 +11,7 @@ public class Sommet {
 	private ArrayList<Arete> aretes = new ArrayList<Arete>();
 	private int distance;
 	private Sommet predecesseur;
+	private int ensemble;
 	
 	public Sommet (int id,String nom,String ligne,boolean estTerminus) {
 		this.nom = nom;
@@ -25,13 +26,21 @@ public class Sommet {
 		
 	@Override
 	public String toString() {
-		return this.id + " " + this.nom + this.ligne + " " + this.estTerminus + this.estMarque;
+		return this.id + " " + this.nom + this.ligne + " " + this.estTerminus +" "+ this.estMarque+" " + this.ensemble;
+	}
+	
+	public int getEnsemble() {
+		return ensemble;
+	}
+	
+	public void setEnsemble(int ensemble) {
+		this.ensemble = ensemble;
 	}
 
 	public void printAretes()
 	{
 		for(Arete arete : this.aretes)
-			 arete.printArete(arete);
+			 arete.toString();
 	}
 	
 	public void setEstMarque(boolean bool)
@@ -70,5 +79,9 @@ public class Sommet {
 
 	public boolean getEstMarque() {
 		return this.estMarque;
+	}
+
+	public String getNom() {
+		return this.nom;
 	}
 }
