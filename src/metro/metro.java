@@ -17,6 +17,7 @@ public class metro {
 		HashMap<Integer, Sommet> listeSommets = new HashMap<Integer, Sommet>();
 		ArrayList<Arete> listeAretesLesPlusOpti = new ArrayList<Arete>();
 		ArrayList<Arete> listeAretes = new ArrayList<Arete>();
+//Lydia change dans metro
 		 try
 	        {
 			 	// ATTENTION CHANGER LA DESTINATION DU FILE	
