@@ -12,7 +12,7 @@ import Models.Arete;
 import Models.Sommet;
 
 
-public class metro {
+public class Metro {
 	public static void main(String[] args) {
 		HashMap<Integer, Sommet> listeSommets = new HashMap<Integer, Sommet>();
 		ArrayList<Arete> listeAretesLesPlusOpti = new ArrayList<Arete>();
