@@ -20,7 +20,7 @@ public class Metro {
 		 try
 	        {
 			 	// ATTENTION CHANGER LA DESTINATION DU FILE	
-	            File file = new File("C://Users//Cantin//eclipse-workspace//metro//src//ressourceS/metro.txt");
+	            File file = new File("C:\\Users\\mouss\\efrei\\Metro\\src\\ressources\\metro.txt");
 	            Scanner scannerSommet = new Scanner(file);
 	            Scanner scannerArete = new Scanner(file);
 	            listeSommets = ParseStation(scannerSommet,listeSommets);
