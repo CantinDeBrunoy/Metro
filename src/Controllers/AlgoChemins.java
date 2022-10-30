@@ -153,7 +153,7 @@ public class AlgoChemins {
 			poidstoto = poidstoto + arete.getPoids();
 			
 		 }
-		System.out.println(poidstoto);
+		//System.out.println(poidstoto);
 		return listeAretesLesPlusOpti;
 	}
 }

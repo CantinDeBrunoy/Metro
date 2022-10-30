@@ -6,6 +6,8 @@ import java.awt.event.MouseListener;
 
 import javax.swing.*;
 
+import Controllers.AlgoChemins;
+
 
 public class MyFrame extends JFrame implements MouseListener {
 	
@@ -14,11 +16,11 @@ public class MyFrame extends JFrame implements MouseListener {
 	public MyFrame() {
 		super("Mon application");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-	    this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
-	    //affiche carte metro
+		this.setSize(1003, 992);
+		this.setResizable(false);
+	   
 	  	ImageIcon carte = new ImageIcon("src/ressources/metrof_r.png");
-	  	JLabel image = new JLabel(carte);	
+	  	JLabel image = new JLabel(carte);
 	  	this.add(image);
 	  		
 	  	image.addMouseListener(this);
@@ -28,8 +30,7 @@ public class MyFrame extends JFrame implements MouseListener {
 		 * this.add(new JTextField("ecris la"));
 		 * 
 		 * JButton lebouton = new JButton("ya pas wsh"); this.add(lebouton);
-		 */
-	
+		 */	
 	}
 
 
@@ -40,10 +41,8 @@ public class MyFrame extends JFrame implements MouseListener {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		//Add this code to draw a circle each time you click.
-        int x = e.getX(); //Position X (mouse will be in the center of the point)
-        int y = e.getY(); //Position Y (mouse will be in the center of the point)
+        int x = e.getX(); 
+        int y = e.getY(); 
 
         System.out.println(x);
         System.out.println(y);
@@ -57,7 +56,7 @@ public class MyFrame extends JFrame implements MouseListener {
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

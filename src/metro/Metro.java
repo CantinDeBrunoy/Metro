@@ -10,6 +10,8 @@ import java.util.Scanner;
 import Controllers.AlgoChemins;
 import Models.Arete;
 import Models.Sommet;
+import Models.Coordonnees;
+import Views.MyFrame;
 
 
 public class Metro {
@@ -17,14 +19,18 @@ public class Metro {
 		HashMap<Integer, Sommet> listeSommets = new HashMap<Integer, Sommet>();
 		ArrayList<Arete> listeAretesLesPlusOpti = new ArrayList<Arete>();
 		ArrayList<Arete> listeAretes = new ArrayList<Arete>();
+		ArrayList<Coordonnees> listeCoords = new ArrayList<Coordonnees>();
 		 try
 	        {
-			 	// ATTENTION CHANGER LA DESTINATION DU FILE	
+			 	// ATTENTION CHANGER LA DESTINATION DES FILES
 	            File file = new File("C:\\Users\\mouss\\efrei\\Metro\\src\\ressources\\metro.txt");
+	            File fileCoords = new File("C:\\Users\\mouss\\efrei\\Metro\\src\\ressources\\pospoints.txt");
 	            Scanner scannerSommet = new Scanner(file);
 	            Scanner scannerArete = new Scanner(file);
+	            Scanner scannerCoords = new Scanner(fileCoords);
 	            listeSommets = ParseStation(scannerSommet,listeSommets);
 	            listeAretes = ParseArete(scannerArete,listeAretes,listeSommets);
+	            listeCoords = ParseCoords(scannerCoords, listeCoords);
 	                
 	        }
 	        catch(Exception e)
@@ -39,8 +45,11 @@ public class Metro {
 		 
 		 listeAretesLesPlusOpti = algo.apcm(listeAretes);
 		 
+		 MyFrame myframe = new MyFrame();
+		 myframe.setVisible(true);
+		 System.out.println(listeCoords);
     }
-	
+
 	public static HashMap<Integer, Sommet> ParseStation(Scanner scanner,HashMap<Integer, Sommet> listeSommets){
          while (scanner.hasNextLine()) {
          	String ligne = scanner.nextLine();
@@ -79,5 +88,18 @@ public class Metro {
 			}
         }
         return listeAretes;
+	}
+	
+	private static ArrayList<Coordonnees> ParseCoords(Scanner scanner, ArrayList<Coordonnees> listeCoords) {
+		while (scanner.hasNextLine()) {
+         	String ligne = scanner.nextLine();
+         	String[] ligneInfo = ligne.split(";");
+			Coordonnees coords = new Coordonnees(
+				Integer.parseInt(ligneInfo[0]),
+				Integer.parseInt(ligneInfo[1])
+			);
+			listeCoords.add(coords);
+         }
+		return listeCoords;
 	}
 }
