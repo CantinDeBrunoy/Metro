@@ -47,7 +47,7 @@ public class Metro {
 		 
 		 MyFrame myframe = new MyFrame();
 		 myframe.setVisible(true);
-		 System.out.println(listeCoords);
+		 //System.out.println(listeAretesLesPlusOpti);
     }
 
 	public static HashMap<Integer, Sommet> ParseStation(Scanner scanner,HashMap<Integer, Sommet> listeSommets){
@@ -102,4 +102,5 @@ public class Metro {
          }
 		return listeCoords;
 	}
+
 }

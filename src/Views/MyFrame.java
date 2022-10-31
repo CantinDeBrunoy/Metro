@@ -1,12 +1,14 @@
 package Views;
 
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.*;
 
-import Controllers.AlgoChemins;
+import Models.Coordonnees;
 
 
 public class MyFrame extends JFrame implements MouseListener {
@@ -21,9 +23,11 @@ public class MyFrame extends JFrame implements MouseListener {
 	   
 	  	ImageIcon carte = new ImageIcon("src/ressources/metrof_r.png");
 	  	JLabel image = new JLabel(carte);
+	  	//JButton buttonAcpm = new JButton("Voir l'ACPM");
 	  	this.add(image);
 	  		
 	  	image.addMouseListener(this);
+
 
 		/*
 		 * this.add(new JButton("clique wsh")); this.add(new JCheckBox("coche la"));
@@ -41,11 +45,11 @@ public class MyFrame extends JFrame implements MouseListener {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-        int x = e.getX(); 
-        int y = e.getY(); 
-
-        System.out.println(x);
-        System.out.println(y);
+        Coordonnees c = new Coordonnees(e.getX(), e.getY());
+        System.out.println(c);
+        Graphics g = getGraphics();
+        g.setColor(Color.RED);
+        g.drawOval(c.getC1()+6, c.getC2()+29, WIDTH+4, HEIGHT+4);
 	}
 
 	@Override
