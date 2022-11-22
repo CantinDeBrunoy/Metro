@@ -8,29 +8,27 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 import Controllers.AlgoChemins;
+
 import Models.Arete;
 import Models.Sommet;
-import Models.Coordonnees;
-import Views.MyFrame;
 
+import Views.Frame;
+import Views.Panel;
 
 public class Metro {
 	public static void main(String[] args) {
 		HashMap<Integer, Sommet> listeSommets = new HashMap<Integer, Sommet>();
 		ArrayList<Arete> listeAretesLesPlusOpti = new ArrayList<Arete>();
 		ArrayList<Arete> listeAretes = new ArrayList<Arete>();
-		ArrayList<Coordonnees> listeCoords = new ArrayList<Coordonnees>();
+		int changement = 135;
 		 try
 	        {
-			 	// ATTENTION CHANGER LA DESTINATION DES FILES
-	            File file = new File("C:\\Users\\mouss\\efrei\\Metro\\src\\ressources\\metro.txt");
-	            File fileCoords = new File("C:\\Users\\mouss\\efrei\\Metro\\src\\ressources\\pospoints.txt");
+			 	// ATTENTION CHANGER LA DESTINATION DU FILE	
+	            File file = new File("..//Metro//src//ressources/metro.txt");
 	            Scanner scannerSommet = new Scanner(file);
 	            Scanner scannerArete = new Scanner(file);
-	            Scanner scannerCoords = new Scanner(fileCoords);
 	            listeSommets = ParseStation(scannerSommet,listeSommets);
 	            listeAretes = ParseArete(scannerArete,listeAretes,listeSommets);
-	            listeCoords = ParseCoords(scannerCoords, listeCoords);
 	                
 	        }
 	        catch(Exception e)
@@ -38,18 +36,23 @@ public class Metro {
 	            e.printStackTrace();
 	        }   
 		  
-		 AlgoChemins algo = new AlgoChemins(listeSommets);
-		 
-		 //System.out.println(algo.estConnexe());
-		 //algo.plusCourtChemin(274, 182);
-		 
-		 listeAretesLesPlusOpti = algo.apcm(listeAretes);
-		 
-		 MyFrame myframe = new MyFrame();
-		 myframe.setVisible(true);
-		 //System.out.println(listeAretesLesPlusOpti);
-    }
 
+		AlgoChemins algo = new AlgoChemins(listeSommets);
+		 
+		//System.out.println(algo.estConnexe());
+		//algo.plusCourtChemin(256, 288);
+		 
+		listeAretesLesPlusOpti = algo.apcm(listeAretes);
+		System.out.println(listeAretes);
+
+		/*
+		 * Frame fenetre = new Frame(); Panel panel = new
+		 * Panel(listeAretesLesPlusOpti,listeSommets); fenetre.add(panel);
+		 * fenetre.repaint(); fenetre.revalidate();
+		 */
+		 
+    }
+	
 	public static HashMap<Integer, Sommet> ParseStation(Scanner scanner,HashMap<Integer, Sommet> listeSommets){
          while (scanner.hasNextLine()) {
          	String ligne = scanner.nextLine();
@@ -89,18 +92,27 @@ public class Metro {
         }
         return listeAretes;
 	}
-	
-	private static ArrayList<Coordonnees> ParseCoords(Scanner scanner, ArrayList<Coordonnees> listeCoords) {
-		while (scanner.hasNextLine()) {
-         	String ligne = scanner.nextLine();
-         	String[] ligneInfo = ligne.split(";");
-			Coordonnees coords = new Coordonnees(
-				Integer.parseInt(ligneInfo[0]),
-				Integer.parseInt(ligneInfo[1])
-			);
-			listeCoords.add(coords);
-         }
-		return listeCoords;
-	}
 
+
+	public static ArrayList<Arete> ParseCoord(Scanner scanner,ArrayList<Arete> listeAretes, HashMap<Integer, Sommet> listeSommets){
+        while (scanner.hasNextLine()) {
+        	String ligne = scanner.nextLine();
+        	String[] ligneInfo = ligne.split(" " );
+        	if(ligneInfo[0].equals("E")) {
+				Arete arete = new Arete(
+						Integer.parseInt(ligneInfo[3]),
+						Integer.parseInt(ligneInfo[1]),
+						Integer.parseInt(ligneInfo[2])
+						);
+				listeAretes.add(arete);
+				 for (Integer i : listeSommets.keySet()) {
+					if(listeSommets.get(i).getId() == arete.getS1() || listeSommets.get(i).getId() == arete.getS2())
+					{
+						listeSommets.get(i).setAretes(arete);
+					}	
+				}
+			}
+        }
+        return listeAretes;
+	}
 }
